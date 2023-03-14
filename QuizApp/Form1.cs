@@ -18,7 +18,7 @@ namespace QuizApp
         int qNumber = 1;
         int score;
         int totalQuestions;
-
+    
 
         public Form1()
         {
@@ -30,6 +30,7 @@ namespace QuizApp
 
         private void checkAnswerEvent(object sender, EventArgs e)
         {
+            int incorr = totalQuestions - score;
             var senderObject = (Button)sender;
             int buttonTag = Convert.ToInt32(senderObject.Tag);
             if (buttonTag == cAnswer)
@@ -43,8 +44,7 @@ namespace QuizApp
                 MessageBox.Show(
                     "Quiz Ended!" + Environment.NewLine +
                     "You have answered " + score + " questions correctly." + Environment.NewLine +
-
-              
+                    "Incorrect questions: " + incorr + "."
                     );
                 score = 0;
                 qNumber = 0;
